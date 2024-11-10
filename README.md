@@ -55,6 +55,7 @@ This project demonstrates a **NestJS** application featuring full **CRUD operati
 2. **Install Dependencies**:
    ```bash
    npm install
+   docker-compose up
    ```
 
 3. **Set Up Environment Variables**:  
