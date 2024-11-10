@@ -1,3 +1,4 @@
+# NestJS-I18n-CRUD-Application
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
@@ -26,48 +27,72 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+This project demonstrates a **NestJS** application featuring full **CRUD operations** with internationalization (**i18n**) support. The application allows users to perform CRUD operations on a `User` entity, including a `country` field, with input in both **English** and **Arabic**. Error messages and system responses are localized based on the user's language preference.
+
+## Features
+
+- **CRUD Operations**: Comprehensive operations for the `User` entity.
+- **i18n Support**: Localization for messages, including validation errors.
+- **Mongoose Integration**: Connects to **MongoDB** with **Mongoose** for schema management.
+- **Validation and Error Handling**: Custom, localized error handling for unique constraints (e.g., `username` and `email`).
+
+## Technologies Used
+
+- **NestJS**: A scalable server-side application framework.
+- **nestjs-i18n**: Internationalization library.
+- **Mongoose**: MongoDB Object Data Modeling (ODM) library.
+- **MongoDB**: NoSQL database.
+- **TypeScript**: For static typing and better development experience.
+
 ## Installation
 
-```bash
-$ npm install
-```
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/diaaqassem/nestjs-i18n-crud.git
+   cd nestjs-i18n-crud
+   ```
 
-## Running the app
+2. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
 
-```bash
-# development
-$ npm run start
+3. **Set Up Environment Variables**:  
+   Create a `.env` file in the root directory with the following:
+   ```bash
+   MONGO_URI=mongodb://localhost:27017/nestjs-i18n-crud
+   ```
 
-# watch mode
-$ npm run start:dev
+4. **Run the Application**:
+   ```bash
+   npm run start:dev
+   ```
 
-# production mode
-$ npm run start:prod
-```
+## Endpoints
 
-## Test
+| Method | Endpoint      | Description             |
+|--------|---------------|-------------------------|
+| POST   | `/users`      | Create a new user       |
+| GET    | `/users`      | Retrieve all users      |
+| GET    | `/users/:id`  | Retrieve a user by ID   |
+| PATCH  | `/users/:id`  | Update a user by ID     |
+| DELETE | `/users/:id`  | Delete a user by ID     |
 
-```bash
-# unit tests
-$ npm run test
+## Localization
 
-# e2e tests
-$ npm run test:e2e
+This project uses the **nestjs-i18n** package for message translation based on user preferences. For example, error messages for duplicate entries (e.g., unique `username` or `email`) will be displayed in the user's selected language.
 
-# test coverage
-$ npm run test:cov
-```
+### How to Change Language in the App
 
-## Support
+1. **Query Parameter**:  
+   Pass the `lang` query parameter in your request:  
+   ```bash
+   GET /users?lang=ar
+   ```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+2. **Headers**:  
+   Add the `Accept-Language` header to your request:  
+   ```bash
+   Accept-Language: en
+   ```
 
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
